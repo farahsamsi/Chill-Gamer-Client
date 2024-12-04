@@ -8,6 +8,9 @@ export default {
       fontFamily: {
         roboto: "Roboto",
       },
+      colors: {
+        primary: "#FFC311",
+      },
     },
   },
   plugins: [daisyui],
