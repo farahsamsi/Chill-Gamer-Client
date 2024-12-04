@@ -7,9 +7,12 @@ import MyReviews from "../Pages/MyReviews";
 import MyWatchlist from "../Pages/MyWatchlist";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
+        errorElement: <ErrorPage></ErrorPage>,
         path: "/",
         element: <MainLayout></MainLayout>,
         children: [
@@ -19,7 +22,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addReview',
-                element: <AddReview></AddReview>
+                element: <PrivateRoute>
+                    <AddReview></AddReview>
+                </PrivateRoute>
             },
             {
                 path: '/allReviews',
@@ -27,11 +32,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myReviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute>
+                    <MyReviews></MyReviews>
+                </PrivateRoute>
             },
             {
                 path: '/myWatchlist',
-                element: <MyWatchlist></MyWatchlist>
+                element: <PrivateRoute>
+                    <MyWatchlist></MyWatchlist>
+                </PrivateRoute>
             },
             {
                 path: '/login',

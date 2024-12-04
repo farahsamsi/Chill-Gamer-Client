@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import Loader from "../Components/Loader";
+import Loading from "../Components/Loading";
 
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children }) => {
@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <Loader />;
+        return <Loading />;
     }
 
     if (!user) {

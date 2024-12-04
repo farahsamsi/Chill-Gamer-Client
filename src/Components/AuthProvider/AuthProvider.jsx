@@ -6,6 +6,7 @@ import app from '../../firebase/firebase.config';
 
 import { GoogleAuthProvider } from "firebase/auth";
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -40,11 +41,26 @@ const AuthProvider = ({ children }) => {
 
     // log out function
     const handleLogOut = () => {
-        signOut(auth)
-            .then(() => {
-                toast.info('Successfully log out');
-            })
-            .catch(error => toast.error(error.message))
+        Swal.fire({
+            text: "Are you sure you want to sign out?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#FFC311",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Sign Out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                signOut(auth)
+                    .then(() => {
+                        // toast.info('Successfully Signed Out');
+                    })
+                    .catch(error => toast.error(error.message))
+                Swal.fire({
+                    text: "Your are successfully signed out from Chill Gamer",
+                    icon: "success"
+                });
+            }
+        });
     }
 
     // update profile

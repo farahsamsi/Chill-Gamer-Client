@@ -2,14 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 import './Navbar.css';
 import { RiMenuFoldFill } from "react-icons/ri";
 import UserNavbar from "./UserNavbar";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allReviews'>All Reviews</NavLink></li>
-        <li><NavLink to='/addReview'>Add Review</NavLink></li>
-        <li><NavLink to='/myReviews'>My Reviews</NavLink></li>
-        <li><NavLink to='/myWatchlist'>Game WatchList</NavLink></li>
+        {user && <li><NavLink to='/addReview'>Add Review</NavLink></li>}
+        {user && <li><NavLink to='/myReviews'>My Reviews</NavLink></li>}
+        {user && <li><NavLink to='/myWatchlist'>Game WatchList</NavLink></li>}
     </>
     return (
         <div>

@@ -6,16 +6,14 @@ import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Register = () => {
     const { handleRegister, manageProfile, handleGoogleLogin } = useContext(AuthContext);
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
 
     const [showPassword, setShowPassword] = useState(false);
-
 
     const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
-        setError('');
 
         const name = e.target.name.value;
         const email = e.target.email.value;
@@ -25,8 +23,7 @@ const Register = () => {
         // password validation
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
-            setError("Password must be at least 6 characters long, with at least one uppercase letter and one lowercase letter.");
-            toast.error(`${error}`);
+            toast.error("Password must be at least 6 characters long, with at least one uppercase letter and one lowercase letter.");
             return;
         }
 
@@ -46,7 +43,7 @@ const Register = () => {
         handleGoogleLogin()
             .then((data) => {
                 console.log(data.user)
-                // navigate('/')
+                navigate('/')
                 toast.success('Google login successful.');
             })
             .catch(error => toast.error(error.message));
