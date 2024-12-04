@@ -29,8 +29,8 @@ const UserNavbar = () => {
                     </ul>
                 </div>
                 <div className="join">
-                    <Link to='/login'><button className="btn join-item bg-primary font-semibold text-white">SIGN IN</button></Link>
-                    <Link to='/register'><button className="btn join-item bg-primary font-semibold text-white">SIGN UP</button></Link>
+                    <Link to='/login'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN IN</button></Link>
+                    <Link to='/register'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN UP</button></Link>
                 </div>
             </div>
         </div>

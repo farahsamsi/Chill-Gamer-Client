@@ -29,7 +29,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1 lg:hidden">
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost text-2xl m-1"><RiMenuFoldFill /></div>
-                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow font-bold">
+                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow font-bold">
                                 {links}
                                 <div className="md:hidden">
                                     <UserNavbar></UserNavbar>
