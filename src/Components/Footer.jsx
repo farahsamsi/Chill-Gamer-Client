@@ -1,8 +1,127 @@
+import { Link } from "react-router-dom";
+import { IoMdArrowDropright } from "react-icons/io";
+import { FaApple, FaGooglePlay, FaSteam, FaWindows, FaAmazon, FaPaypal } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div>
-            Footer
+        <div className="bg-black text-white">
+            <footer className="footer md:grid-cols-2 xl:grid-cols-3 grid-flow-row p-10 container mx-auto">
+                <nav>
+                    <h1 className="btn btn-ghost text-2xl lg:text-4xl font-extrabold">ABOUT<span className="text-primary">US</span></h1>
+                    <p>Chill Gamer is a review aggregator for video games. Chill Gamer collects review data from hundreds of online publications, blogs, and channels and compiles it all into one page. Chill Gamer&apos;s mission is to help consumers make more informed decisions when considering to pre order, buy, or play a game.</p>
+                </nav>
+                <nav className=" w-full">
+                    <h1 className="btn btn-ghost text-2xl lg:text-4xl font-extrabold">USEFULL<span className="text-primary">LINKS</span></h1>
+                    <div className="grid grid-cols-2 w-full px-4">
+                        <ul className="space-y-2">
+                            <li><Link to='/' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Home</Link></li>
+                            <li><Link to='/allReviews' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> All reviews</Link></li>
+                            <li><Link to='/login' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Sign In</Link></li>
+                            <li><Link to='/register' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Sign Up</Link></li>
+                            <li><Link className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Sign Out</Link></li>
+                        </ul>
+                        <ul className="space-y-2">
+                            <li><Link to='/' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Home</Link></li>
+                            <li><Link to='/allReviews' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> All reviews</Link></li>
+                            <li><Link to='/login' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Sign In</Link></li>
+                            <li><Link to='/register' className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Sign Up</Link></li>
+                            <li><Link className="flex items-center"><span className="text-primary"><IoMdArrowDropright /></span> Sign Out</Link></li>
+                        </ul>
+                    </div>
+                </nav>
+                <nav className="md:col-span-2 xl:col-span-1">
+                    <h1 className="btn btn-ghost text-2xl lg:text-4xl font-extrabold">GET<span className="text-primary">US IN</span></h1>
+                    <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-2 justify-items-center gap-4 md:p-6 ">
+                        {/* Apple Store Button */}
+                        <div className="flex items-center justify-center p-4 border rounded-md shadow-md hover:bg-gray-700">
+                            <FaApple className="text-xl mr-2" />
+                            <span>
+                                <strong>Buy now via</strong> <br /> Apple Store
+                            </span>
+                        </div>
+
+                        {/* Google Play Button */}
+                        <div className="flex items-center justify-center p-4 border rounded-md shadow-md hover:bg-gray-700">
+                            <FaGooglePlay className="text-xl mr-2" />
+                            <span>
+                                <strong>Buy now via</strong> <br /> Google Play
+                            </span>
+                        </div>
+
+                        {/* Steam Button */}
+                        <div className="flex items-center justify-center p-4 border rounded-md shadow-md hover:bg-gray-700">
+                            <FaSteam className="text-xl mr-2" />
+                            <span>
+                                <strong>Buy now via</strong> <br /> Steam
+                            </span>
+                        </div>
+
+                        {/* Windows Store Button */}
+                        <div className="flex items-center justify-center p-4 border rounded-md shadow-md hover:bg-gray-700">
+                            <FaWindows className="text-xl mr-2" />
+                            <span>
+                                <strong>Download via</strong> <br /> WinStore
+                            </span>
+                        </div>
+
+                        {/* Amazon Button */}
+                        <div className="flex items-center justify-center p-4 border rounded-md shadow-md hover:bg-gray-700">
+                            <FaAmazon className="text-xl mr-2" />
+                            <span>
+                                <strong>Buy now via</strong> <br /> Amazon
+                            </span>
+                        </div>
+
+                        {/* PayPal Button */}
+                        <div className="flex items-center justify-center p-4 border rounded-md shadow-md hover:bg-gray-700">
+                            <FaPaypal className="text-xl mr-2" />
+                            <span>
+                                <strong>Download via</strong> <br /> PayPal
+                            </span>
+                        </div>
+                    </div>
+                </nav>
+            </footer>
+            <footer className="flex justify-center gap-4 text-neutral-content items-center p-4">
+                <aside className="">
+                    <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+                </aside>
+                <nav className="flex  gap-4 items-center justify-center">
+                    <a>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            className="fill-current">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                        </svg>
+                    </a>
+                    <a>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            className="fill-current">
+                            <path
+                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                        </svg>
+                    </a>
+                    <a>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            className="fill-current">
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                        </svg>
+                    </a>
+                </nav>
+            </footer>
         </div>
     );
 };
