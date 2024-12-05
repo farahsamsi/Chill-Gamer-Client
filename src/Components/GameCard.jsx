@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 
 const GameCard = ({ review }) => {
     const { _id, photo, name, year, userName, userEmail, description, rating, genre } = review;
@@ -24,12 +25,12 @@ const GameCard = ({ review }) => {
                     src={photo}
                     className="w-full h-full object-cover" />
             </div>
-            <button className="btn border-none rounded-none bg-primary text-white text-xl min-h-16  flex justify-center items-center px-5">
+            <Link to={`/reviewDetails/${_id}`} className="btn border-none rounded-none bg-primary text-white text-xl min-h-16  flex justify-center items-center px-5">
                 Explore Details
                 {/* <div>
                     <ReactStars key={_id} {...firstExample} />
                 </div> */}
-            </button>
+            </Link>
 
         </div>
     );

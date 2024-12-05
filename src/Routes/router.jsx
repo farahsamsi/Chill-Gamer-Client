@@ -9,6 +9,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
+import ReviewDetails from "../Pages/ReviewDetails";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,13 @@ const router = createBrowserRouter([
             {
                 path: '/allReviews',
                 element: <AllReviews></AllReviews>
+            },
+            {
+                path: '/reviewDetails/:id',
+                element: <ReviewDetails></ReviewDetails>,
+                loader: ({ params }) => {
+                    return fetch(`https://assignment-ten-server-iota-five.vercel.app/gameReviews/${params.id}`)
+                }
             },
             {
                 path: '/myReviews',
