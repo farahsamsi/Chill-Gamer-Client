@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react';
 import ReactStars from "react-rating-stars-component";
 
 const GameCard = ({ review }) => {
@@ -7,7 +6,7 @@ const GameCard = ({ review }) => {
 
     const firstExample = {
         size: 30,
-        value: 4,
+        value: rating,
         color: "black",
         activeColor: "white",
         edit: false
@@ -25,12 +24,12 @@ const GameCard = ({ review }) => {
                     src={photo}
                     className="w-full h-full object-cover" />
             </div>
-            <div className="bg-primary text-white min-h-16  flex justify-between items-center">
-                <p>Description</p>
-                <div>
+            <button className="btn border-none rounded-none bg-primary text-white text-xl min-h-16  flex justify-center items-center px-5">
+                Explore Details
+                {/* <div>
                     <ReactStars key={_id} {...firstExample} />
-                </div>
-            </div>
+                </div> */}
+            </button>
 
         </div>
     );
