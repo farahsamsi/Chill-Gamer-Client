@@ -9,7 +9,6 @@ import { Link, useLocation } from 'react-router-dom';
 const GameCard = ({ review }) => {
     const { _id, photo, name, year, userName, userEmail, description, rating, genre } = review;
     const { pathname } = useLocation();
-    console.log(pathname);
 
     const [active, setActive] = useState(true);
     useEffect(() => {
@@ -24,8 +23,6 @@ const GameCard = ({ review }) => {
     const firstExample = {
         size: 30,
         value: rating,
-        // color: "black",
-        // activeColor: "white",
         edit: false
     };
 

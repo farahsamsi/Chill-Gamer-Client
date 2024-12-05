@@ -5,10 +5,20 @@ import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { SiBigcartel } from "react-icons/si";
 import { VscOpenPreview } from "react-icons/vsc";
 import { MdAlternateEmail } from "react-icons/md";
+import { useContext } from "react";
+import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 
 const ReviewDetails = () => {
+    const { user } = useContext(AuthContext);
+    const { displayName, email } = user;
+
     const game = useLoaderData();
     const { _id, photo, name, year, userName, userEmail, description, rating, genre } = game;
+
+    const handleWatchList = () => {
+        const newWatchListItem = { _id, displayName, email }
+        console.log(newWatchListItem)
+    }
 
 
     return (
@@ -52,11 +62,13 @@ const ReviewDetails = () => {
                                 </table>
                             </div>
                         </div>
-                        <div className="flex justify-end">
-                            <button className="btn bg-primary text-white">
-                                <SiBigcartel />
-                                Add to WatchList</button>
-                        </div>
+                        {
+                            user && <div className="flex justify-end">
+                                <button onClick={handleWatchList} className="btn bg-primary text-white">
+                                    <SiBigcartel />
+                                    Add to WatchList</button>
+                            </div>
+                        }
                     </div>
                 </div>
                 {/* for game description */}
