@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddReview = () => {
@@ -29,7 +30,27 @@ const AddReview = () => {
 
         const newReview = { photo, name, year, userName, userEmail, description, rating, genre };
 
-        console.log(newReview)
+        // send data to server
+        fetch('http://localhost:5000/gameReviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Review added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+
+                }
+            })
     }
     return (
         <div className='w-11/12 container mx-auto '>

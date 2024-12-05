@@ -8,6 +8,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
+
 const googleProvider = new GoogleAuthProvider();
 
 // creating context 
