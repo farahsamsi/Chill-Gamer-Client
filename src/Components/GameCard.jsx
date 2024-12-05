@@ -1,15 +1,31 @@
 import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react';
+import { FaRegClock } from 'react-icons/fa';
+import { FaRegStarHalfStroke } from 'react-icons/fa6';
+import { IoMdPricetags } from 'react-icons/io';
 import ReactStars from "react-rating-stars-component";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const GameCard = ({ review }) => {
     const { _id, photo, name, year, userName, userEmail, description, rating, genre } = review;
+    const { pathname } = useLocation();
+    console.log(pathname);
+
+    const [active, setActive] = useState(true);
+    useEffect(() => {
+        if (pathname !== "/") {
+            setActive(false);
+        } else {
+            setActive(true);
+        }
+    }, [pathname]);
+
 
     const firstExample = {
         size: 30,
         value: rating,
-        color: "black",
-        activeColor: "white",
+        // color: "black",
+        // activeColor: "white",
         edit: false
     };
 
@@ -25,11 +41,38 @@ const GameCard = ({ review }) => {
                     src={photo}
                     className="w-full h-full object-cover" />
             </div>
+            {
+                active ? '' : <div className="overflow-x-auto border-x border-primary">
+                    <table className="table md:text-xl">
+                        <tbody>
+                            {/* row 1 */}
+                            <tr>
+                                <td className="text-primary text-xl"><IoMdPricetags /></td>
+                                <td className="font-bold text-black/55">Genre:</td>
+                                <td>{genre}</td>
+                            </tr>
+                            {/* row 2 */}
+                            <tr>
+                                <td className="text-primary text-xl"><FaRegClock /></td>
+                                <td className="font-bold text-black/55">Release Year:</td>
+                                <td>{year}</td>
+                            </tr>
+                            {/* row 3 */}
+                            <tr>
+                                <td className="text-primary text-xl"><FaRegStarHalfStroke /></td>
+                                <td className="font-bold text-black/55">Rating:</td>
+                                <td>{rating}/5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div className='flex justify-center items-center border-t'>
+                        <ReactStars key={_id} {...firstExample} />
+                    </div>
+                </div>
+            }
             <Link to={`/reviewDetails/${_id}`} className="btn border-none rounded-none bg-primary text-white text-xl min-h-16  flex justify-center items-center px-5">
                 Explore Details
-                {/* <div>
-                    <ReactStars key={_id} {...firstExample} />
-                </div> */}
+
             </Link>
 
         </div>
