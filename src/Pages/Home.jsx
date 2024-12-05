@@ -1,3 +1,4 @@
+import AboutUs from "../Components/AboutUs";
 import Blogs from "../Components/Blogs";
 import HighestRatedGames from "../Components/HighestRatedGames";
 import Slider from "../Components/Slider";
@@ -12,6 +13,7 @@ const Home = () => {
             {/* new section 1 */}
             <Blogs></Blogs>
             {/* new section 2 */}
+            <AboutUs></AboutUs>
         </div>
     );
 };
