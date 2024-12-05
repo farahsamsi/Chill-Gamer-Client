@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyReviews = () => {
@@ -81,7 +81,9 @@ const MyReviews = () => {
                                     </td>
                                     <td>{review.rating}/5</td>
                                     <th>
-                                        <button className="btn bg-primary text-white btn-xs">Update</button>
+                                        <Link to={`/updateReview/${review._id}`}>
+                                            <button className="btn bg-primary text-white btn-xs">Update</button>
+                                        </Link>
                                         <button onClick={() => handleDelete(review._id)} className="btn bg-red-500 text-white btn-xs">Delete</button>
                                     </th>
                                 </tr>)

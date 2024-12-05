@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const UserNavbar = () => {
     const { user, loading, handleLogOut } = useContext(AuthContext);
     const navigate = useNavigate();
-    // console.log(user.displayName);
+
     const [newUser, setNewUser] = useState({});
     useEffect(() => {
         if (loading) {
@@ -16,8 +18,29 @@ const UserNavbar = () => {
     }, [loading, user])
 
     const signOutBtn = () => {
-        handleLogOut();
-        navigate('/');
+        Swal.fire({
+            text: "Are you sure you want to sign out?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#FFC311",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Sign Out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleLogOut()
+                    .then(() => {
+                        // toast.info('Successfully Signed Out');
+                        navigate('/');
+                    })
+                    .catch(error => toast.error(error.message))
+                Swal.fire({
+                    text: "Your are successfully signed out from Chill Gamer",
+                    icon: "success"
+                });
+            }
+        });
+
+
     }
 
     return (
