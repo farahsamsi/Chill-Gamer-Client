@@ -1,4 +1,5 @@
 import { FaFacebookF, FaGooglePlusG, FaInstagram, FaTwitch, FaTwitter, FaYoutube } from "react-icons/fa6";
+import { Typewriter } from "react-simple-typewriter";
 
 const AboutUs = () => {
     return (
@@ -10,7 +11,16 @@ const AboutUs = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="w-full text-white py-8">
                 <div className="flex flex-col justify-center items-center text-center gap-4 mb-5 ">
-                    <h1 className="text-2xl md:text-5xl font-extrabold">CONTACT <span className="text-primary">US</span></h1>
+                    <h1 className="text-2xl md:text-5xl font-extrabold"><Typewriter
+                        words={["CONTACT"]}
+                        loop={false}
+                        typeSpeed={40}
+                    /> <span className="text-primary"><Typewriter
+                        words={[" US"]}
+                        loop={false}
+                        typeSpeed={40}
+                        cursor
+                    /></span></h1>
                 </div>
                 <section className=" text-white py-6">
                     <div className="container mx-auto flex justify-center space-x-6">

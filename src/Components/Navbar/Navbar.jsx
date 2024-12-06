@@ -5,7 +5,12 @@ import UserNavbar from "./UserNavbar";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
+import { Typewriter } from "react-simple-typewriter";
+
 const Navbar = () => {
+
+
+
     const { user } = useContext(AuthContext);
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -21,7 +26,25 @@ const Navbar = () => {
             </div>
             <div className="navbar bg-base-100 container mx-auto">
                 <div className="flex-1">
-                    <Link to='/' className="btn btn-ghost text-2xl lg:text-4xl font-extrabold">CHILL<span className="text-primary">GAMER</span></Link>
+                    <Link to='/' className="btn btn-ghost text-2xl lg:text-4xl font-extrabold">
+                        <span>
+                            <Typewriter
+                                words={["CHILL"]}
+                                loop={false}
+                                typeSpeed={40}
+                            />
+                        </span>
+                        <span className="text-primary"><Typewriter
+                            words={["GAMER"]}
+                            loop={false}
+                            typeSpeed={40}
+                            cursor
+                        />
+                        </span>
+                    </Link>
+                    <div>
+
+                    </div>
                 </div>
                 <div className="flex-none">
                     {/* for lg device */}
