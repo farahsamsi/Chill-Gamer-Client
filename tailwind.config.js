@@ -10,8 +10,10 @@ export default {
       },
       colors: {
         primary: "#FFC311",
+        deep: "#737373",
       },
     },
   },
+
   plugins: [daisyui],
 };

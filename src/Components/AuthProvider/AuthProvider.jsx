@@ -6,9 +6,6 @@ import app from '../../firebase/firebase.config';
 
 import { GoogleAuthProvider } from "firebase/auth";
 
-
-
-
 const googleProvider = new GoogleAuthProvider();
 
 // creating context 
@@ -17,6 +14,9 @@ const auth = getAuth(app);
 
 
 const AuthProvider = ({ children }) => {
+    // theme changing in user navbar
+    const themeLS = localStorage.getItem("theme") || "light";
+    const [theme, setTheme] = useState(themeLS);
 
     // loading state
     const [loading, setLoading] = useState(true);
@@ -78,6 +78,8 @@ const AuthProvider = ({ children }) => {
         setUser,
         loading,
         setLoading,
+        theme,
+        setTheme
     }
 
     return (

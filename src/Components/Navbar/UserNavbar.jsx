@@ -5,8 +5,18 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
 const UserNavbar = () => {
-    const { user, loading, handleLogOut } = useContext(AuthContext);
+    const { user, loading, handleLogOut, setTheme, theme } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    // theme changing 
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme]);
+    const toggleTheme = e => {
+        if (e.target.checked) setTheme("dark");
+        else setTheme("light")
+    }
 
     const [newUser, setNewUser] = useState({});
     useEffect(() => {
@@ -39,45 +49,44 @@ const UserNavbar = () => {
                 });
             }
         });
-
-
     }
 
     return (
-        <div className="navbar min-h-0  container mx-auto md:mt-3 p-0">
-            <div className="flex-1 h-fit">
-            </div>
-            <div className="flex flex-row justify-center items-center gap-4">
-                {
-                    newUser && <div className="dropdown dropdown-end tooltip tooltip-left" data-tip={newUser.displayName}>
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img
-                                    alt="Tailwind CSS Navbar component"
-                                    src={newUser.photoURL} />
+        <div className="container mx-auto md:mt-3 px-1">
+            <div className="navbar min-h-0  p-0">
+                <div className="flex-1 h-fit">
+                    <input
+                        checked={theme === 'dark' ? true : false}
+                        onChange={toggleTheme}
+                        type="checkbox"
+                        className="hidden md:flex toggle" />
+                </div>
+                <div className="flex flex-row justify-center items-center gap-4">
+                    {
+                        newUser && <div className="dropdown dropdown-end tooltip tooltip-left" data-tip={newUser.displayName}>
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        src={newUser.photoURL} />
+                                </div>
                             </div>
                         </div>
-                        {/* <ul
-                            tabIndex={0}
-                            className="hidden md:menu menu-sm dropdown-content  rounded-box z-[100] mt-3 w-52 p-2 shadow">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul> */}
+                    }
+                    <div>
+                    </div>
+                    {
+                        newUser ? <div><button onClick={signOutBtn} className={`btn btn-sm join-item bg-primary font-semibold ${theme === 'light' ? 'text-white' : 'text-black'}`}>SIGN OUT</button></div> : <div className="join">
+                            <Link to='/login'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN IN</button></Link>
+                            <Link to='/register'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN UP</button></Link>
+                        </div>
+                    }
+                </div>
+            </div>
 
-                    </div>
-                }
-                {
-                    newUser ? <div><button onClick={signOutBtn} className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN OUT</button></div> : <div className="join">
-                        <Link to='/login'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN IN</button></Link>
-                        <Link to='/register'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN UP</button></Link>
-                    </div>
-                }
+            <div className="flex justify-center items-center md:hidden">
+                <input onChange={toggleTheme}
+                    type="checkbox" className="toggle" defaultChecked />
             </div>
         </div>
     );
