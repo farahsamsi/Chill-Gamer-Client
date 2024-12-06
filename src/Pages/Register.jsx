@@ -57,7 +57,7 @@ const Register = () => {
                 <p className="font-medium text-black/80 px-4">Join the ultimate community for gamers! Sign up to write reviews, create a watch list, and connect with others who share your passion for gaming. Start your journey now and unlock exciting features tailored just for you.</p>
             </div>
 
-            <div className="card bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border relative">
+            <div className="card  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border relative">
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">

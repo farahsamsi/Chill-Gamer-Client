@@ -12,7 +12,7 @@ const BlogsCard = ({ blog }) => {
         category,
         image } = blog;
     return (
-        <div className="card bg-base-100 w-full shadow-xl">
+        <div className="card  w-full shadow-xl">
             <div className="w-full md:h-80">
                 <img
                     src={image}

@@ -45,7 +45,7 @@ const MyReviews = () => {
                 <h1 className="text-2xl lg:text-5xl font-extrabold">MY <span className="text-primary">REVIEWS</span></h1>
                 <p className="font-medium text-black/80 px-4">Keep track of all your reviews in one place! Revisit your opinions, edit details, and manage your feedback on games you&apos;ve loved—or hated. Your reviews help shape the gaming community, so stay engaged and share your voice on the titles you’ve explored.</p>
             </div>
-            <div className="card p-6 bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
+            <div className="card p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}

@@ -44,7 +44,7 @@ const MyWatchlist = () => {
                 <h1 className="text-2xl lg:text-5xl font-extrabold">MY <span className="text-primary">WATCH LIST</span></h1>
                 <p className="font-medium text-black/80 px-4">Save your favorite games and keep an eye on upcoming titles! Manage your watch list, track ratings, and never miss the games you’re excited about. Build your personal collection of must-play games and explore them at your pace.</p>
             </div>
-            <div className="card p-6 bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
+            <div className="card p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}

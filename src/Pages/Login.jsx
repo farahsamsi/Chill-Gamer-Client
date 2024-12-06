@@ -58,7 +58,7 @@ const Login = () => {
                     Welcome back! Sign in to access your reviews, watch list, and personalized recommendations. Join the community of gamers sharing their passion and insights. Log in to dive back into your gaming journey and keep exploring your favorite titles!
                 </p>
             </div>
-            <div className="card bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
+            <div className="card  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">

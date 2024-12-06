@@ -47,7 +47,7 @@ const ReviewDetails = () => {
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
                 <h1 className="text-2xl lg:text-5xl font-extrabold">GAME <span className="text-primary">{name}</span></h1>
             </div>
-            <div className="card p-6 bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
+            <div className="card p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 {/* grid for photo and summary */}
                 <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-6">
                     <div className="w-full h-80 md:h-96 lg:h-[30rem]">

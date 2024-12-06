@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className="hidden md:flex">
                 <UserNavbar></UserNavbar>
             </div>
-            <div className="navbar bg-base-100 container mx-auto">
+            <div className="navbar  container mx-auto">
                 <div className="flex-1">
                     <Link to='/' className="btn btn-ghost text-2xl lg:text-4xl font-extrabold">CHILL<span className="text-primary">GAMER</span></Link>
                 </div>
@@ -32,7 +32,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1 lg:hidden">
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost text-2xl m-1"><RiMenuFoldFill /></div>
-                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[100] w-52 p-2 shadow font-bold">
+                            <ul tabIndex={0} className="dropdown-content menu  rounded-box z-[100] w-52 p-2 shadow font-bold">
                                 {links}
                                 <div className="md:hidden">
                                     <UserNavbar></UserNavbar>

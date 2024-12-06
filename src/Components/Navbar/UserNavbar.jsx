@@ -44,7 +44,7 @@ const UserNavbar = () => {
     }
 
     return (
-        <div className="navbar min-h-0 bg-base-100 container mx-auto md:mt-3 p-0">
+        <div className="navbar min-h-0  container mx-auto md:mt-3 p-0">
             <div className="flex-1 h-fit">
             </div>
             <div className="flex flex-row justify-center items-center gap-4">
@@ -59,7 +59,7 @@ const UserNavbar = () => {
                         </div>
                         {/* <ul
                             tabIndex={0}
-                            className="hidden md:menu menu-sm dropdown-content bg-base-100 rounded-box z-[100] mt-3 w-52 p-2 shadow">
+                            className="hidden md:menu menu-sm dropdown-content  rounded-box z-[100] mt-3 w-52 p-2 shadow">
                             <li>
                                 <a className="justify-between">
                                     Profile
