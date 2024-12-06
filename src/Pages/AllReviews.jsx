@@ -57,15 +57,17 @@ const AllReviews = () => {
                 </div>
                 {/* Sort Dropdown */}
                 <div className="w-full flex items-center justify-center">
-
                     <select
+                        tabIndex={0} role="button"
                         onChange={(e) => handleSort(e.target.value)}
                         value={sortCriteria}
-                        className="select select-bordered w-8/12"
+                        className="select select-bordered w-8/12 "
                     >
+
                         <option disabled value="">Sort by...</option>
                         <option value="rating">Rating</option>
                         <option value="year">Year</option>
+
                     </select>
 
                 </div>

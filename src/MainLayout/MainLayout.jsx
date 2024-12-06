@@ -8,6 +8,7 @@ import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 
 import { useEffect } from 'react'
 import { themeChange } from 'theme-change'
+import 'react-tooltip/dist/react-tooltip.css'
 
 
 const MainLayout = () => {

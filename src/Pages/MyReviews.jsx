@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Tooltip } from 'react-tooltip'
 
 const MyReviews = () => {
     const reviews = useLoaderData();
@@ -45,15 +46,19 @@ const MyReviews = () => {
                 <h1 className="text-2xl lg:text-5xl font-extrabold">MY <span className="text-primary">REVIEWS</span></h1>
                 <p className="font-medium text-black/80 px-4">Keep track of all your reviews in one place! Revisit your opinions, edit details, and manage your feedback on games you&apos;ve loved—or hated. Your reviews help shape the gaming community, so stay engaged and share your voice on the titles you’ve explored.</p>
             </div>
-            <div className="card p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
+            <div className="card p-0 md:p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
                         <thead>
                             <tr>
                                 <th>Game Name</th>
-                                <th>Genre</th>
-                                <th>Rating</th>
+                                <th>
+                                    <div className="hidden md:flex">Genre</div>
+                                </th>
+                                <th>
+                                    <div className="hidden md:flex">Rating</div>
+                                </th>
                                 <th>Action buttons</th>
                             </tr>
                         </thead>
@@ -63,7 +68,7 @@ const MyReviews = () => {
                                 myReviews?.map(review => <tr key={review._id}>
                                     <td>
                                         <div className="flex items-center gap-3">
-                                            <div className="avatar">
+                                            <div className="hidden md:avatar">
                                                 <div className="mask mask-squircle h-12 w-12">
                                                     <img
                                                         src={review.photo}
@@ -71,16 +76,22 @@ const MyReviews = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="font-bold">{review.name}</div>
-
+                                                <Tooltip id="my-tooltip" />
+                                                <div
+                                                    data-tooltip-id="my-tooltip"
+                                                    data-tooltip-place="right"
+                                                    data-tooltip-content={`Genre:${review.genre},
+                                                    Rating:${review.rating}/5`}
+                                                    className="font-bold">{review.name}</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        {review.genre}
-
+                                        <div className="hidden md:flex">{review.genre}</div>
                                     </td>
-                                    <td>{review.rating}/5</td>
+                                    <td>
+                                        <div className="hidden md:flex">{review.rating}/5</div>
+                                    </td>
                                     <th>
                                         <Link to={`/updateReview/${review._id}`}>
                                             <button className="btn bg-primary text-white btn-xs">Update</button>

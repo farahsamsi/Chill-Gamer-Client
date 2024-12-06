@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 
 const MyWatchlist = () => {
@@ -44,15 +45,19 @@ const MyWatchlist = () => {
                 <h1 className="text-2xl lg:text-5xl font-extrabold">MY <span className="text-primary">WATCH LIST</span></h1>
                 <p className="font-medium text-black/80 px-4">Save your favorite games and keep an eye on upcoming titles! Manage your watch list, track ratings, and never miss the games you’re excited about. Build your personal collection of must-play games and explore them at your pace.</p>
             </div>
-            <div className="card p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
+            <div className="card p-0 md:p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
                         <thead>
                             <tr>
                                 <th>Game Name</th>
-                                <th>Genre</th>
-                                <th>Rating</th>
+                                <th>
+                                    <div className="hidden md:flex">Genre</div>
+                                </th>
+                                <th>
+                                    <div className="hidden md:flex">Rating</div>
+                                </th>
                                 <th>Action buttons</th>
                             </tr>
                         </thead>
@@ -62,7 +67,7 @@ const MyWatchlist = () => {
                                 watchList?.map(item => <tr key={item._id}>
                                     <td>
                                         <div className="flex items-center gap-3">
-                                            <div className="avatar">
+                                            <div className="hidden md:avatar">
                                                 <div className="mask mask-squircle h-12 w-12">
                                                     <img
                                                         src={item.photo}
@@ -70,15 +75,22 @@ const MyWatchlist = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="font-bold">{item.name}</div>
+                                                <Tooltip id="my-tooltip" />
+                                                <div
+                                                    data-tooltip-id="my-tooltip"
+                                                    data-tooltip-place="right"
+                                                    data-tooltip-content={`Genre:${item.genre},
+                                                    Rating:${item.rating}/5`}
+                                                    className="font-bold">{item.name}</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        {item.genre}
-
+                                        <div className="hidden md:flex">{item.genre}</div>
                                     </td>
-                                    <td>{item.rating}/5</td>
+                                    <td>
+                                        <div className="hidden md:flex">{item.rating}/5</div>
+                                    </td>
                                     <th>
                                         <button onClick={() => handleDelete(item._id)} className="btn bg-red-500 text-white btn-xs">
                                             Delete
