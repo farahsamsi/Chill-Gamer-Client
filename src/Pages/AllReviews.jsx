@@ -41,11 +41,11 @@ const AllReviews = () => {
             </div>
             <div className="mb-6 w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Filter Dropdown */}
-                <div className="">
+                <div className="w-full flex items-center justify-center">
                     <select
                         onChange={(e) => handleFilter(e.target.value)}
                         value={selectedGenre}
-                        className="select select-bordered w-full max-w-xs"
+                        className="select select-bordered w-8/12"
                     >
                         <option value="all">All Genres</option>
                         {genres.map((genre, index) => (
@@ -56,18 +56,18 @@ const AllReviews = () => {
                     </select>
                 </div>
                 {/* Sort Dropdown */}
-                <div>
-                    <div className="flex items-center gap-4">
-                        <select
-                            onChange={(e) => handleSort(e.target.value)}
-                            value={sortCriteria}
-                            className="select select-bordered w-full max-w-xs"
-                        >
-                            <option disabled value="">Sort by...</option>
-                            <option value="rating">Rating</option>
-                            <option value="year">Year</option>
-                        </select>
-                    </div>
+                <div className="w-full flex items-center justify-center">
+
+                    <select
+                        onChange={(e) => handleSort(e.target.value)}
+                        value={sortCriteria}
+                        className="select select-bordered w-8/12"
+                    >
+                        <option disabled value="">Sort by...</option>
+                        <option value="rating">Rating</option>
+                        <option value="year">Year</option>
+                    </select>
+
                 </div>
             </div>
             <div className="w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4">

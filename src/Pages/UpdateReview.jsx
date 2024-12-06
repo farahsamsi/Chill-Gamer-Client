@@ -47,7 +47,7 @@ const UpdateReview = () => {
                 if (data.modifiedCount) {
                     Swal.fire({
                         title: 'Success',
-                        text: 'Coffee updated successfully',
+                        text: 'Review updated successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
