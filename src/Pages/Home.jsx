@@ -1,3 +1,4 @@
+import { Fade, Slide } from "react-awesome-reveal";
 import AboutUs from "../Components/AboutUs";
 import Blogs from "../Components/Blogs";
 import HighestRatedGames from "../Components/HighestRatedGames";
@@ -11,9 +12,13 @@ const Home = () => {
             {/* Highest Rated Game Section */}
             <HighestRatedGames></HighestRatedGames>
             {/* new section 1 */}
-            <Blogs></Blogs>
+            <Fade>
+                <Blogs></Blogs>
+            </Fade>
             {/* new section 2 */}
-            <AboutUs></AboutUs>
+            <Slide direction="right">
+                <AboutUs></AboutUs>
+            </Slide>
         </div>
     );
 };
