@@ -7,6 +7,7 @@ import { VscOpenPreview } from "react-icons/vsc";
 import { MdAlternateEmail } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const ReviewDetails = () => {
     const { user } = useContext(AuthContext);
@@ -16,8 +17,29 @@ const ReviewDetails = () => {
     const { _id, photo, name, year, userName, userEmail, description, rating, genre } = game;
 
     const handleWatchList = () => {
-        const newWatchListItem = { _id, displayName, email }
-        console.log(newWatchListItem)
+        const newWatchListItem = { name, photo, genre, rating, displayName, email } // send this data in DB in watchListCollection
+        console.log(newWatchListItem);
+        // send data to server
+        fetch('https://assignment-ten-server-iota-five.vercel.app/watchList', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newWatchListItem)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Successfully added to your Watch List',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+
+                }
+            })
     }
 
 

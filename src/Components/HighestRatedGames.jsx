@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import GameCard from "./GameCard";
 import { useEffect, useState } from "react";
 
@@ -7,13 +7,10 @@ const HighestRatedGames = () => {
 
     const [reviews, setReviews] = useState(reviewsLoaded);
 
-    const [showAll, setShowAll] = useState(false);
-
     useEffect(() => {
-        // Toggle between showing all games or the first 6
-        const displayedGames = showAll ? reviewsLoaded : reviewsLoaded.slice(0, 6);
+        const displayedGames = reviewsLoaded.slice(0, 6);
         setReviews(displayedGames);
-    }, [reviewsLoaded, showAll])
+    }, [reviewsLoaded])
 
     const sortGamesByRating = (games) => {
         return games.sort((a, b) => b.rating - a.rating);
@@ -30,12 +27,12 @@ const HighestRatedGames = () => {
                     reviews.map(review => <GameCard key={review._id} review={review}></GameCard>)
                 }
             </div>
-            <div className="mt-4 w-11/12 mx-auto ">
-                <button
-                    onClick={() => setShowAll(!showAll)}
+            <div className="mt-4 w-11/12 mx-auto">
+                <Link
+                    to='/allReviews'
                     className="btn btn-block btn-outline hover:bg-primary hover:text-white">
-                    {showAll ? "Show Less Games" : "Show All Games"}
-                </button>
+                    Show All Games
+                </Link>
             </div>
         </div>
     );

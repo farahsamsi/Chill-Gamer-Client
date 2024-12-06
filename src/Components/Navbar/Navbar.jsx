@@ -10,9 +10,9 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allReviews'>All Reviews</NavLink></li>
-        {user && <li><NavLink to='/addReview'>Add Review</NavLink></li>}
+        <li><NavLink to='/addReview'>Add Review</NavLink></li>
         {user && <li><NavLink to={`/myReviews/${user.email}`}>My Reviews</NavLink></li>}
-        {user && <li><NavLink to='/myWatchlist'>Game WatchList</NavLink></li>}
+        {user && <li><NavLink to={`/myWatchlist/${user.email}`}>Game WatchList</NavLink></li>}
     </>
     return (
         <div>

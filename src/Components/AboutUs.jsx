@@ -3,7 +3,7 @@ import { FaFacebookF, FaGooglePlusG, FaInstagram, FaTwitch, FaTwitter, FaYoutube
 const AboutUs = () => {
     return (
         <div
-            className="hero min-h-screen mb-4 md:mb-6 lg:mb-8 container mx-auto mt-12"
+            className="hero min-h-screen mb-4 md:mb-6 lg:mb-8 mt-12"
             style={{
                 backgroundImage: "url(https://i.ibb.co.com/j6gcPK6/clash.png)",
             }}>
@@ -48,7 +48,7 @@ const AboutUs = () => {
                                 className="input input-bordered textarea w-full bg-transparent rounded-none border-white placeholder-white"
                             />
                         </div>
-                        <button className="btn btn-wide border-none bg-white text-primary hover:bg-black hover:text-primary mt-5">
+                        <button className="btn btn-wide border-none bg-white text-primary hover:bg-black/80 hover:text-primary mt-5">
                             SUBMIT
                         </button>
                     </div>

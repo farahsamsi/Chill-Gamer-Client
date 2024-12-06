@@ -31,7 +31,7 @@ const AddReview = () => {
         const newReview = { photo, name, year, userName, userEmail, description, rating, genre };
 
         // send data to server
-        fetch('http://localhost:5000/gameReviews', {
+        fetch('https://assignment-ten-server-iota-five.vercel.app/gameReviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

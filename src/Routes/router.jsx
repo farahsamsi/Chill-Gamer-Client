@@ -59,15 +59,20 @@ const router = createBrowserRouter([
                     const res = await fetch('https://assignment-ten-server-iota-five.vercel.app/gameReviews')
                     const data = await res.json();
                     const filterData = data.filter(d => d.userEmail == params.email)
-                    // console.log(filterData)
                     return filterData;
                 }
             },
             {
-                path: '/myWatchlist',
+                path: '/myWatchlist/:email',
                 element: <PrivateRoute>
                     <MyWatchlist></MyWatchlist>
-                </PrivateRoute>
+                </PrivateRoute>,
+                loader: async ({ params }) => {
+                    const res = await fetch('https://assignment-ten-server-iota-five.vercel.app/watchList')
+                    const data = await res.json();
+                    const filterData = data.filter(d => d.email == params.email)
+                    return filterData;
+                }
             },
             {
                 path: '/login',

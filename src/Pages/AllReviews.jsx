@@ -3,7 +3,6 @@ import GameCard from "../Components/GameCard";
 
 const AllReviews = () => {
     const allReviews = useLoaderData();
-    console.log(allReviews)
     return (
         <div className="my-4 md:my-6 lg:my-8">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
