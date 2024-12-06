@@ -54,7 +54,9 @@ const Login = () => {
         <div className="my-4 md:my-6 lg:my-8">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
                 <h1 className="text-2xl lg:text-5xl font-extrabold">SIGN <span className="text-primary">IN</span></h1>
-                <p className="font-medium text-black/80 px-4">Get access to view, edit and add reviews of your <span className="text-primary">favorite GAMES</span> by registering in simple steps.</p>
+                <p className="font-medium text-black/80 px-4">
+                    Welcome back! Sign in to access your reviews, watch list, and personalized recommendations. Join the community of gamers sharing their passion and insights. Log in to dive back into your gaming journey and keep exploring your favorite titles!
+                </p>
             </div>
             <div className="card bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <form onSubmit={handleSubmit} className="card-body">

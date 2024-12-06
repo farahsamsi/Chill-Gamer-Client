@@ -1,15 +1,25 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer";
+import { useContext } from "react";
+import { AuthContext } from "../Components/AuthProvider/AuthProvider";
+import Loading from "../Components/Loading";
 
 const MainLayout = () => {
+    const { loading, setLoading } = useContext(AuthContext);
+    console.log(loading)
+
     return (
         <div className="font-roboto">
 
             {/* Navbar  */}
             <Navbar></Navbar>
             <div className="min-h-[calc(100vh-300px)]">
-                <Outlet></Outlet>
+                {/* <Loading></Loading>
+                <Outlet></Outlet> */}
+                {
+                    loading ? <Loading></Loading> : <Outlet></Outlet>
+                }
             </div>
 
             {/* Footer */}

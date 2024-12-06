@@ -37,7 +37,6 @@ const ReviewDetails = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-
                 }
             })
     }

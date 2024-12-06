@@ -54,7 +54,7 @@ const Register = () => {
         <div className="my-4 md:my-6 lg:my-8">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
                 <h1 className="text-2xl lg:text-5xl font-extrabold">SIGN <span className=" text-primary">UP</span></h1>
-                <p className="font-medium text-black/80 px-4">Get access to view, edit and add reviews of your <span className="text-primary">favorite GAMES</span> by registering in simple steps.</p>
+                <p className="font-medium text-black/80 px-4">Join the ultimate community for gamers! Sign up to write reviews, create a watch list, and connect with others who share your passion for gaming. Start your journey now and unlock exciting features tailored just for you.</p>
             </div>
 
             <div className="card bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border relative">

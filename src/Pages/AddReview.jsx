@@ -58,7 +58,7 @@ const AddReview = () => {
                 <div className='w-10/12 mx-auto'>
                     <div className='text-center'>
                         <h1 className='text-2xl lg:text-5xl font-bold'>Add <span className="text-primary">Review</span></h1>
-                        <p className='md:max-w-[930px] mx-auto my-4 md:my-6'>Chill Gamer is a review aggregator for video games. Chill Gamer collects review data from hundreds of online publications, blogs, and channels and compiles it all into one page. Chill Gamer&apos;s mission is to help consumers make more informed decisions when considering to pre order, buy, or play a game.</p>
+                        <p className='md:max-w-[930px] mx-auto my-4 md:my-6'>Share your thoughts and experiences about your favorite games! Add detailed reviews, rate gameplay, graphics, and storyline, and help others discover the best titles. Your feedback matters—join the community of passionate gamers and make your voice heard. Write your review now and be part of the gaming conversation!</p>
                     </div>
                     <form onSubmit={handleSubmit} className='space-y-4'>
                         {/* row 1 */}

@@ -42,7 +42,7 @@ const MyWatchlist = () => {
         <div className="my-4 md:my-6 lg:my-8">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
                 <h1 className="text-2xl lg:text-5xl font-extrabold">MY <span className="text-primary">WATCH LIST</span></h1>
-                <p className="font-medium text-black/80 px-4">Chill Gamer is a item aggregator for video games. Chill Gamer collects item data from hundreds of online publications, blogs, and channels and compiles it all into one page. Chill Gamer&apos;s mission is to help consumers make more informed decisions when considering to pre order, buy, or play a game.</p>
+                <p className="font-medium text-black/80 px-4">Save your favorite games and keep an eye on upcoming titles! Manage your watch list, track ratings, and never miss the games you’re excited about. Build your personal collection of must-play games and explore them at your pace.</p>
             </div>
             <div className="card p-6 bg-base-100 w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <div className="overflow-x-auto">
@@ -71,7 +71,6 @@ const MyWatchlist = () => {
                                             </div>
                                             <div>
                                                 <div className="font-bold">{item.name}</div>
-
                                             </div>
                                         </div>
                                     </td>
@@ -81,12 +80,12 @@ const MyWatchlist = () => {
                                     </td>
                                     <td>{item.rating}/5</td>
                                     <th>
-
-                                        <button onClick={() => handleDelete(item._id)} className="btn bg-red-500 text-white btn-xs">Delete From Watch List</button>
+                                        <button onClick={() => handleDelete(item._id)} className="btn bg-red-500 text-white btn-xs">
+                                            Delete
+                                            <span className="hidden md:flex">From Watch List</span></button>
                                     </th>
                                 </tr>)
                             }
-
                         </tbody>
                     </table>
                 </div>
