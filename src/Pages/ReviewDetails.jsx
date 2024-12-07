@@ -21,7 +21,7 @@ const ReviewDetails = () => {
 
     const handleWatchList = () => {
         const newWatchListItem = { name, photo, genre, rating, displayName, email } // send this data in DB in watchListCollection
-        console.log(newWatchListItem);
+
         // send data to server
         fetch('https://assignment-ten-server-iota-five.vercel.app/watchList', {
             method: 'POST',
@@ -32,7 +32,7 @@ const ReviewDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success',

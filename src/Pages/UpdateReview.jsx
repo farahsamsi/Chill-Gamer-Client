@@ -31,7 +31,7 @@ const UpdateReview = () => {
         const genre = e.target.genre.value;
 
         const updateReview = { photo, name, year, userName, userEmail, description, rating, genre };
-        console.log(updateReview);
+
 
         // update coffee data to the server
         fetch(`https://assignment-ten-server-iota-five.vercel.app/gameReviews/${_id}`, {
@@ -43,7 +43,6 @@ const UpdateReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount) {
                     Swal.fire({
                         title: 'Success',

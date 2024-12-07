@@ -1,4 +1,4 @@
-import { Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import AboutUs from "../Components/AboutUs";
 import Blogs from "../Components/Blogs";
 import HighestRatedGames from "../Components/HighestRatedGames";
@@ -16,9 +16,9 @@ const Home = () => {
                 <Blogs></Blogs>
             </Fade>
             {/* new section 2 */}
-            <Slide direction="right">
-                <AboutUs></AboutUs>
-            </Slide>
+
+            <AboutUs></AboutUs>
+
         </div>
     );
 };

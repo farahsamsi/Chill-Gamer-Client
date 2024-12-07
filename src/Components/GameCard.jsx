@@ -9,7 +9,7 @@ import { AuthContext } from './AuthProvider/AuthProvider';
 
 const GameCard = ({ review }) => {
     const { theme } = useContext(AuthContext);
-    const { _id, photo, name, year, userName, userEmail, description, rating, genre } = review;
+    const { _id, photo, name, year, rating, genre } = review;
     const { pathname } = useLocation();
 
     const [active, setActive] = useState(true);

@@ -11,8 +11,8 @@ const AboutUs = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="w-full text-white py-8">
                 <div className="flex flex-col justify-center items-center text-center gap-4 mb-5 ">
-                    <h1 className="text-2xl md:text-5xl font-extrabold"><Typewriter
-                        words={["CONTACT"]}
+                    <h1 className="text-2xl md:text-5xl font-extrabold">C<Typewriter
+                        words={["ONTACT"]}
                         loop={false}
                         typeSpeed={40}
                     /> <span className="text-primary"><Typewriter

@@ -10,7 +10,7 @@ const AllReviews = () => {
 
     const [sortCriteria, setSortCriteria] = useState("");
     const genres = Array.from(new Set(loadedReviews.map((review) => review.genre)));
-    console.log(genres);
+
     const [selectedGenre, setSelectedGenre] = useState("");
 
     // Filter handler

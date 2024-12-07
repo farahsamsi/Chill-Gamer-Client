@@ -10,7 +10,7 @@ const MyWatchlist = () => {
     const { theme } = useContext(AuthContext);
 
     const handleDelete = _id => {
-        console.log('after clicked', _id);
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -26,7 +26,7 @@ const MyWatchlist = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

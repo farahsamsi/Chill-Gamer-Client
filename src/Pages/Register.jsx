@@ -41,8 +41,8 @@ const Register = () => {
 
     const googleLoginBtn = () => {
         handleGoogleLogin()
-            .then((data) => {
-                console.log(data.user)
+            .then(() => {
+
                 navigate('/')
                 toast.success('Google login successful.');
             })
