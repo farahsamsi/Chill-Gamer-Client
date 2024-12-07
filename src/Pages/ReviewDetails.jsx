@@ -17,7 +17,7 @@ const ReviewDetails = () => {
 
 
     const game = useLoaderData();
-    const { _id, photo, name, year, userName, userEmail, description, rating, genre } = game;
+    const { photo, name, year, userName, userEmail, description, rating, genre } = game;
 
     const handleWatchList = () => {
         const newWatchListItem = { name, photo, genre, rating, displayName, email } // send this data in DB in watchListCollection
