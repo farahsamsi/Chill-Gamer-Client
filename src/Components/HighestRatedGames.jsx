@@ -15,11 +15,6 @@ const HighestRatedGames = () => {
         setReviews(displayedGames);
     }, [reviewsLoaded])
 
-    const sortGamesByRating = (games) => {
-        return games.sort((a, b) => b.rating - a.rating);
-    }
-    sortGamesByRating(reviewsLoaded);
-
     return (
         <div className="my-4 md:my-6 lg:my-8 container mx-auto">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
