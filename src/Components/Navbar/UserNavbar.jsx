@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 
 const UserNavbar = () => {
     const { user, loading, handleLogOut, setTheme, theme } = useContext(AuthContext);
@@ -52,14 +53,16 @@ const UserNavbar = () => {
     }
 
     return (
-        <div className="container mx-auto md:mt-3 px-1">
+        <div className="container md:w-11/12 mx-auto md:mt-3 px-1">
             <div className="navbar min-h-0  p-0">
-                <div className="flex-1 h-fit">
+                <div className="flex-1 h-fit gap-2 items-center">
+                    <IoSunnyOutline className="hidden md:flex" />
                     <input
                         checked={theme === 'dark' ? true : false}
                         onChange={toggleTheme}
                         type="checkbox"
                         className="hidden md:flex toggle" />
+                    <IoMoon className="hidden md:flex" />
                 </div>
                 <div className="flex flex-row justify-center items-center gap-4">
                     {
@@ -76,17 +79,21 @@ const UserNavbar = () => {
                     <div>
                     </div>
                     {
-                        newUser ? <div><button onClick={signOutBtn} className={`btn btn-sm join-item bg-primary font-semibold ${theme === 'light' ? 'text-white' : 'text-black'}`}>SIGN OUT</button></div> : <div className="join">
-                            <Link to='/login'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN IN</button></Link>
-                            <Link to='/register'><button className="btn btn-sm join-item bg-primary font-semibold text-white">SIGN UP</button></Link>
+                        newUser ? <div><button onClick={signOutBtn} className={`btn btn-sm join-item bg-primary font-semibold ${theme === 'light' ? 'text-white' : 'text-black hover:bg-white'}`}>SIGN OUT</button></div> : <div className="join">
+                            <Link to='/login'><button className={`btn btn-sm join-item bg-primary font-semibold ${theme === 'light' ? 'text-white' : 'text-black hover:bg-white'}`}>SIGN IN</button></Link>
+                            <Link to='/register'><button className={`btn btn-sm join-item bg-primary font-semibold ${theme === 'light' ? 'text-white' : 'text-black hover:bg-white'}`}>SIGN UP</button></Link>
                         </div>
                     }
                 </div>
             </div>
 
-            <div className="flex justify-center items-center md:hidden">
+            <div className="flex justify-center items-center gap-2 md:hidden">
+                <IoSunnyOutline className="md:hidden " />
                 <input onChange={toggleTheme}
-                    type="checkbox" className="toggle" defaultChecked />
+                    checked={theme === 'dark' ? true : false}
+                    type="checkbox"
+                    className="toggle" />
+                <IoMoon className="md:hidden" />
             </div>
         </div>
     );

@@ -25,15 +25,15 @@ const Navbar = () => {
             <div className="navbar bg-base-100 container mx-auto">
                 <div className="flex-1">
                     <Link to='/' className={`btn btn-ghost text-2xl lg:text-4xl font-extrabold ${theme === 'light' ? 'text-black' : 'text-white'}`}>
-                        <span>
+                        <span>C
                             <Typewriter
-                                words={["CHILL"]}
+                                words={["HILL"]}
                                 loop={false}
                                 typeSpeed={40}
                             />
                         </span>
-                        <span className="text-primary"><Typewriter
-                            words={["GAMER"]}
+                        <span className="text-primary">G<Typewriter
+                            words={["AMER"]}
                             loop={false}
                             typeSpeed={40}
                             cursor

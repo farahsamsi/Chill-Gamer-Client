@@ -35,7 +35,9 @@ const Login = () => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: `${err.message}`,
+                    text: `${err.message}.
+                    Please Try again
+                    `,
                 });
 
             });

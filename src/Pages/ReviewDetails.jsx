@@ -11,7 +11,10 @@ import Swal from "sweetalert2";
 
 const ReviewDetails = () => {
     const { user, theme } = useContext(AuthContext);
-    const { displayName, email } = user;
+    // const { displayName, email } = user;
+    const displayName = user?.displayName;
+    const email = user?.email;
+
 
     const game = useLoaderData();
     const { _id, photo, name, year, userName, userEmail, description, rating, genre } = game;
@@ -64,19 +67,19 @@ const ReviewDetails = () => {
                                         {/* row 1 */}
                                         <tr>
                                             <td className="text-primary text-xl"><IoMdPricetags /></td>
-                                            <td className="font-bold text-black/55">Genre :</td>
+                                            <td className={`font-bold ${theme === 'light' ? 'text-black/55' : 'text-white'}`}>Genre :</td>
                                             <td>{genre}</td>
                                         </tr>
                                         {/* row 2 */}
                                         <tr>
                                             <td className="text-primary text-xl"><FaRegClock /></td>
-                                            <td className="font-bold text-black/55">Release Year :</td>
+                                            <td className={`font-bold ${theme === 'light' ? 'text-black/55' : 'text-white'}`}>Release Year :</td>
                                             <td>{year}</td>
                                         </tr>
                                         {/* row 3 */}
                                         <tr>
                                             <td className="text-primary text-xl"><FaRegStarHalfStroke /></td>
-                                            <td className="font-bold text-black/55">Rating :</td>
+                                            <td className={`font-bold ${theme === 'light' ? 'text-black/55' : 'text-white'}`}>Rating :</td>
                                             <td>{rating}/5</td>
                                         </tr>
                                     </tbody>
@@ -96,12 +99,12 @@ const ReviewDetails = () => {
                 <div className="mt-6 space-y-3">
                     <h1 className="text-xl lg:text-2xl font-extrabold">{name} <span className="text-primary">REVIEW</span></h1>
                     <div className="">
-                        <p className="font-bold text-black/55 flex items-center gap-2">
+                        <p className="font-bold flex items-center gap-2">
                             <p className="text-primary text-xl"><VscOpenPreview /></p>
                             <p>Reviewed By :</p>
                             <p>{userName}</p>
                         </p>
-                        <p className="font-bold text-black/55 flex items-center gap-2 flex-wrap">
+                        <p className="font-bold flex items-center gap-2 flex-wrap">
                             <p className="text-primary text-xl"><MdAlternateEmail /></p>
                             <p>Contact Reviewer :</p>
                             <p>{userEmail}</p>

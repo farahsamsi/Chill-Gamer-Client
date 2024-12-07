@@ -55,13 +55,8 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <MyReviews></MyReviews>
                 </PrivateRoute>,
-                loader: async ({ params }) => {
-                    // const { loading, setLoading, } = useContext(AuthContext);
-                    // console.log(loading)
-                    const res = await fetch('https://assignment-ten-server-iota-five.vercel.app/gameReviews')
-                    const data = await res.json();
-                    const filterData = data.filter(d => d.userEmail == params.email)
-                    return filterData;
+                loader: ({ params }) => {
+                    return fetch(`https://assignment-ten-server-iota-five.vercel.app/gameReviews/email/${params.email}`)
                 }
             },
             {
@@ -70,10 +65,8 @@ const router = createBrowserRouter([
                     <MyWatchlist></MyWatchlist>
                 </PrivateRoute>,
                 loader: async ({ params }) => {
-                    const res = await fetch('https://assignment-ten-server-iota-five.vercel.app/watchList')
-                    const data = await res.json();
-                    const filterData = data.filter(d => d.email == params.email)
-                    return filterData;
+                    return fetch(`https://assignment-ten-server-iota-five.vercel.app/watchList/email/${params.email}`)
+
                 }
             },
             {
