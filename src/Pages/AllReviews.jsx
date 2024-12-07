@@ -1,38 +1,57 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import GameCard from "../Components/GameCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 
 const AllReviews = () => {
-    const loadedReviews = useLoaderData();
-    const [allReviews, setAllReviews] = useState(loadedReviews);
+    // const loadedReviews = useLoaderData();
+    const [allReviews, setAllReviews] = useState([]);
     const { theme } = useContext(AuthContext);
-
     const [sortCriteria, setSortCriteria] = useState("");
-    const genres = Array.from(new Set(loadedReviews.map((review) => review.genre)));
 
-    const [selectedGenre, setSelectedGenre] = useState("");
+
+    useEffect(() => {
+        if (!sortCriteria) {
+            fetch('https://assignment-ten-server-iota-five.vercel.app/gameReviews')
+                .then(res => res.json())
+                .then(data => setAllReviews(data))
+        }
+        console.log(sortCriteria);
+        if (sortCriteria === 'rating') {
+            fetch('https://assignment-ten-server-iota-five.vercel.app/gameReviews/sorted/rating')
+                .then(res => res.json())
+                .then(data => setAllReviews(data))
+        } else if (sortCriteria === 'year') {
+            fetch('https://assignment-ten-server-iota-five.vercel.app/gameReviews/sorted/year')
+                .then(res => res.json())
+                .then(data => setAllReviews(data))
+        }
+    }, [sortCriteria])
+
+    // const genres = Array.from(new Set(loadedReviews.map((review) => review.genre)));
+
+    // const [selectedGenre, setSelectedGenre] = useState("");
 
     // Filter handler
-    const handleFilter = (genre) => {
-        setSelectedGenre(genre);
-        if (genre === "all") {
-            setAllReviews(loadedReviews);
-        } else {
-            const filtered = loadedReviews.filter((review) => review.genre === genre);
-            setAllReviews(filtered);
-        }
-    };
+    // const handleFilter = (genre) => {
+    //     setSelectedGenre(genre);
+    //     if (genre === "all") {
+    //         setAllReviews(loadedReviews);
+    //     } else {
+    //         const filtered = loadedReviews.filter((review) => review.genre === genre);
+    //         setAllReviews(filtered);
+    //     }
+    // };
 
     // Sorting handler
     const handleSort = (criteria) => {
         setSortCriteria(criteria);
 
-        const sorted = [...allReviews].sort((a, b) => {
-            return a[criteria] < b[criteria] ? 1 : -1;
-        });
+        // const sorted = [...allReviews].sort((a, b) => {
+        //     return a[criteria] < b[criteria] ? 1 : -1;
+        // });
 
-        setAllReviews(sorted);
+        // setAllReviews(sorted);
     };
 
     return (
@@ -45,16 +64,16 @@ const AllReviews = () => {
                 {/* Filter Dropdown */}
                 <div className="w-full flex items-center justify-center">
                     <select
-                        onChange={(e) => handleFilter(e.target.value)}
-                        value={selectedGenre}
+                        // onChange={(e) => handleFilter(e.target.value)}
+                        // value={selectedGenre}
                         className="select select-bordered w-8/12"
                     >
                         <option value="all">All Genres</option>
-                        {genres.map((genre, index) => (
+                        {/* {genres.map((genre, index) => (
                             <option key={index} value={genre}>
                                 {genre}
                             </option>
-                        ))}
+                        ))} */}
                     </select>
                 </div>
                 {/* Sort Dropdown */}
