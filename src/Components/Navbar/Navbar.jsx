@@ -9,9 +9,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
 
-
-
-    const { user } = useContext(AuthContext);
+    const { user, theme } = useContext(AuthContext);
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allReviews'>All Reviews</NavLink></li>
@@ -26,7 +24,7 @@ const Navbar = () => {
             </div>
             <div className="navbar bg-base-100 container mx-auto">
                 <div className="flex-1">
-                    <Link to='/' className="btn btn-ghost text-2xl lg:text-4xl font-extrabold">
+                    <Link to='/' className={`btn btn-ghost text-2xl lg:text-4xl font-extrabold ${theme === 'light' ? 'text-black' : 'text-white'}`}>
                         <span>
                             <Typewriter
                                 words={["CHILL"]}

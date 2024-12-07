@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FaRegClock } from 'react-icons/fa';
 import { FaRegStarHalfStroke } from 'react-icons/fa6';
 import { IoMdPricetags } from 'react-icons/io';
 import ReactStars from "react-rating-stars-component";
 import { Link, useLocation } from 'react-router-dom';
+import { AuthContext } from './AuthProvider/AuthProvider';
 
 const GameCard = ({ review }) => {
+    const { theme } = useContext(AuthContext);
     const { _id, photo, name, year, userName, userEmail, description, rating, genre } = review;
     const { pathname } = useLocation();
 
@@ -45,19 +47,19 @@ const GameCard = ({ review }) => {
                             {/* row 1 */}
                             <tr>
                                 <td className="text-primary text-xl"><IoMdPricetags /></td>
-                                <td className="font-bold text-black/55">Genre:</td>
+                                <td className={`font-bold ${theme === 'light' ? 'text-black/55' : 'text-white'}`}>Genre:</td>
                                 <td>{genre}</td>
                             </tr>
                             {/* row 2 */}
                             <tr>
                                 <td className="text-primary text-xl"><FaRegClock /></td>
-                                <td className="font-bold text-black/55">Release Year:</td>
+                                <td className={`font-bold ${theme === 'light' ? 'text-black/55' : 'text-white'}`}>Release Year:</td>
                                 <td>{year}</td>
                             </tr>
                             {/* row 3 */}
                             <tr>
                                 <td className="text-primary text-xl"><FaRegStarHalfStroke /></td>
-                                <td className="font-bold text-black/55">Rating:</td>
+                                <td className={`font-bold ${theme === 'light' ? 'text-black/55' : 'text-white'}`}>Rating:</td>
                                 <td>{rating}/5</td>
                             </tr>
                         </tbody>

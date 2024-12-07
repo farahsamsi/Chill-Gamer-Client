@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 
 const MyWatchlist = () => {
     const loadedWatchList = useLoaderData();
     const [watchList, setWatchList] = useState(loadedWatchList);
+    const { theme } = useContext(AuthContext);
 
     const handleDelete = _id => {
         console.log('after clicked', _id);
@@ -42,8 +44,8 @@ const MyWatchlist = () => {
     return (
         <div className="my-4 md:my-6 lg:my-8">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
-                <h1 className="text-2xl lg:text-5xl font-extrabold">MY <span className="text-primary">WATCH LIST</span></h1>
-                <p className="font-medium text-black/80 px-4">Save your favorite games and keep an eye on upcoming titles! Manage your watch list, track ratings, and never miss the games you’re excited about. Build your personal collection of must-play games and explore them at your pace.</p>
+                <h1 className={`text-2xl lg:text-5xl font-bold ${theme === 'light' ? '' : 'text-white'}`}>MY <span className="text-primary">WATCH LIST</span></h1>
+                <p className="font-medium  px-4">Save your favorite games and keep an eye on upcoming titles! Manage your watch list, track ratings, and never miss the games you’re excited about. Build your personal collection of must-play games and explore them at your pace.</p>
             </div>
             <div className="card p-0 md:p-6  w-11/12 mx-auto lg:max-w-screen-md shrink-0 shadow-2xl border">
                 <div className="overflow-x-auto">

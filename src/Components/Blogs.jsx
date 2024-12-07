@@ -1,7 +1,10 @@
 import { Typewriter } from "react-simple-typewriter";
 import BlogsCard from "./BlogsCard";
+import { useContext } from "react";
+import { AuthContext } from "./AuthProvider/AuthProvider";
 
 const Blogs = () => {
+    const { theme } = useContext(AuthContext);
 
     const latestBlogs = [
         {
@@ -46,7 +49,7 @@ const Blogs = () => {
     return (
         <div className="mb-4 md:mb-6 lg:mb-8 container mx-auto mt-12">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
-                <h1 className="text-2xl lg:text-5xl font-extrabold">BLOGS <span className="text-primary"><Typewriter
+                <h1 className={`text-2xl lg:text-5xl font-bold ${theme === 'light' ? '' : 'text-white'}`}>BLOGS <span className="text-primary"><Typewriter
                     words={["& NEWS"]}
                     loop={false}
                     typeSpeed={40}

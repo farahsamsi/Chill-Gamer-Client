@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
 
-    const { handleGoogleLogin, handleLogin } = useContext(AuthContext);
+    const { handleGoogleLogin, handleLogin, theme } = useContext(AuthContext);
 
     const emailRef = useRef();
 
@@ -53,8 +53,8 @@ const Login = () => {
     return (
         <div className="my-4 md:my-6 lg:my-8">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
-                <h1 className="text-2xl lg:text-5xl font-extrabold">SIGN <span className="text-primary">IN</span></h1>
-                <p className="font-medium text-black/80 px-4">
+                <h1 className={`text-2xl lg:text-5xl font-bold ${theme === 'light' ? '' : 'text-white'}`}>SIGN <span className="text-primary">IN</span></h1>
+                <p className="font-medium  px-4">
                     Welcome back! Sign in to access your reviews, watch list, and personalized recommendations. Join the community of gamers sharing their passion and insights. Log in to dive back into your gaming journey and keep exploring your favorite titles!
                 </p>
             </div>

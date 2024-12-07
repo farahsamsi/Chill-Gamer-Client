@@ -1,10 +1,12 @@
 import { Link, useLoaderData } from "react-router-dom";
 import GameCard from "./GameCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import { AuthContext } from "./AuthProvider/AuthProvider";
 
 const HighestRatedGames = () => {
     const reviewsLoaded = useLoaderData();
+    const { theme } = useContext(AuthContext)
 
     const [reviews, setReviews] = useState(reviewsLoaded);
 
@@ -21,7 +23,7 @@ const HighestRatedGames = () => {
     return (
         <div className="my-4 md:my-6 lg:my-8 container mx-auto">
             <div className="md:w-8/12 mx-auto flex flex-col justify-center items-center text-center gap-4 mb-5 ">
-                <h1 className="text-2xl lg:text-5xl font-extrabold">HIGHEST
+                <h1 className={`text-2xl lg:text-5xl font-bold ${theme === 'light' ? '' : 'text-white'}`}>HIGHEST
                     <span className="text-primary">
                         <Typewriter
                             words={[" RATED GAMES"]}
