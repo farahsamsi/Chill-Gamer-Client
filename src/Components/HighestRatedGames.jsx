@@ -1,19 +1,12 @@
 import { Link, useLoaderData } from "react-router-dom";
 import GameCard from "./GameCard";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { AuthContext } from "./AuthProvider/AuthProvider";
 
 const HighestRatedGames = () => {
     const reviewsLoaded = useLoaderData();
-    const { theme } = useContext(AuthContext)
-
-    const [reviews, setReviews] = useState(reviewsLoaded);
-
-    useEffect(() => {
-        const displayedGames = reviewsLoaded.slice(0, 6);
-        setReviews(displayedGames);
-    }, [reviewsLoaded])
+    const { theme } = useContext(AuthContext);
 
     return (
         <div className="my-4 md:my-6 lg:my-8 container mx-auto">
@@ -29,7 +22,7 @@ const HighestRatedGames = () => {
             </div>
             <div className="w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
-                    reviews.map(review => <GameCard key={review._id} review={review}></GameCard>)
+                    reviewsLoaded.map(review => <GameCard key={review._id} review={review}></GameCard>)
                 }
             </div>
             <div className="mt-4 w-11/12 mx-auto">
