@@ -1,22 +1,44 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Rating, ThinStar } from '@smastrom/react-rating'
+
+const myStyles = {
+    itemShapes: ThinStar,
+    activeFillColor: '#ffb700',
+    inactiveFillColor: '#fbf1a9'
+}
 
 const UpdateReview = () => {
     const { user, theme } = useContext(AuthContext);
     const loaded = useLoaderData();
-    const { _id, photo, name, year, userName, userEmail, description, rating: prevRating, genre: prevGenre } = loaded;
+    const { _id, photo, name, year: prevYear, userName, userEmail, description, rating: prevRating, genre: prevGenre } = loaded;
 
-    const [rating, setRating] = useState("");
+    const navigate = useNavigate();
+
+    const [ratingTaken, setRatingTaken] = useState(parseFloat(prevRating));
     const handleRatingChange = (e) => {
-        setRating(e.target.value);
+        // setRating(e.target.value);
+
+        setRatingTaken(e);
     };
+    console.log(ratingTaken);
 
     const [genre, setGenre] = useState("");
     const handleGenreChange = (e) => {
         setGenre(e.target.value);
     };
+
+    const [year, setYear] = useState("");
+    const yearsArray = [
+        2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        2019, 2020, 2021, 2022, 2023, 2024, 2025
+    ];
+    const handleYearChange = (e) => {
+        setYear(e.target.value);
+    };
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -27,7 +49,8 @@ const UpdateReview = () => {
         const userName = e.target.userName.value;
         const userEmail = e.target.userEmail.value;
         const description = e.target.description.value;
-        const rating = e.target.rating.value;
+        // const rating = e.target.rating.value;
+        const rating = ratingTaken;
         const genre = e.target.genre.value;
 
         const updateReview = { photo, name, year, userName, userEmail, description, rating, genre };
@@ -51,6 +74,7 @@ const UpdateReview = () => {
                         confirmButtonText: 'Cool'
                     })
                 }
+                navigate(-1);
             })
     }
 
@@ -86,7 +110,14 @@ const UpdateReview = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-semibold ">Game Publishing Year</span>
                                 </label>
-                                <input name='year' defaultValue={year} type="number" placeholder="Enter the game publishing year" className="input w-full" required />
+                                <select name="year" className="input w-full" id="year" defaultValue={prevYear} onChange={handleYearChange}>
+                                    <option disabled value="">Select Year</option>
+                                    {yearsArray.map((year, index) => (
+                                        <option key={index} value={year}>
+                                            {year}
+                                        </option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         {/* row 3 */}
@@ -108,14 +139,17 @@ const UpdateReview = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-semibold ">Rating</span>
                                 </label>
-                                <select name="rating" defaultValue={prevRating} className=" input w-full" id="rating" onChange={handleRatingChange} required>
+                                {/* <select name="rating" defaultValue={prevRating} className=" input w-full" id="rating" onChange={handleRatingChange} required>
                                     <option value="">Select a rating</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
-                                </select>
+                                </select> */}
+                                <span className="">
+                                    <Rating style={{ maxWidth: 300 }} name='rating' value={ratingTaken} onChange={handleRatingChange} itemStyles={myStyles} />
+                                </span>
                             </div>
                         </div>
                         {/* row 4 */}
@@ -145,7 +179,7 @@ const UpdateReview = () => {
 
                         {/* row 6 */}
                         <div>
-                            <button type='submit' className={`btn bg-primary border-none text-xl w-full ${theme === 'light' ? "text-white" : 'text-black'}`}>Update Review</button>
+                            <button type='submit' className={`btn bg-primary border-none text-xl w-full ${theme === 'light' ? "text-white hover:text-black" : 'text-black hover:bg-white'}`}>Update Review</button>
                         </div>
                     </form>
                 </div>
