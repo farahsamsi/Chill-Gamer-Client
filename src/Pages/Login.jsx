@@ -18,6 +18,7 @@ const Login = () => {
     // const [error, setError] = useState('');
 
     const location = useLocation();
+    console.log(location)
     const navigate = useNavigate();
 
     const handleSubmit = e => {
@@ -28,7 +29,7 @@ const Login = () => {
 
         handleLogin(email, password)
             .then(() => {
-                navigate(location?.state ? location.state : '/');
+                navigate(location?.state === '/addReview' ? location.state : '/');
                 toast.success('Successfully Logged in');
             })
             .catch(err => {

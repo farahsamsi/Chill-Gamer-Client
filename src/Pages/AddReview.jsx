@@ -15,6 +15,14 @@ const AddReview = () => {
     const handleGenreChange = (e) => {
         setGenre(e.target.value);
     };
+    const [year, setYear] = useState("");
+    const yearsArray = [
+        2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        2019, 2020, 2021, 2022, 2023, 2024, 2025
+    ];
+    const handleYearChange = (e) => {
+        setYear(e.target.value);
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -40,7 +48,6 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success',
@@ -48,8 +55,13 @@ const AddReview = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-
                 }
+                e.target.photo.value = '';
+                e.target.name.value = '';
+                e.target.year.value = '';
+                e.target.description.value = '';
+                e.target.rating.value = '';
+                e.target.genre.value = '';
             })
     }
     return (
@@ -82,7 +94,15 @@ const AddReview = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-semibold ">Game Publishing Year</span>
                                 </label>
-                                <input name='year' type="number" placeholder="Enter the game publishing year" className="input w-full" required />
+                                {/* <input name='year' type="number" placeholder="Enter the game publishing year" className="input w-full" required /> */}
+                                <select name="year" className="input w-full" id="year" value={year} onChange={handleYearChange}>
+                                    <option disabled value="">Select Year</option>
+                                    {yearsArray.map((year, index) => (
+                                        <option key={index} value={year}>
+                                            {year}
+                                        </option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         {/* row 3 */}
@@ -92,7 +112,7 @@ const AddReview = () => {
                                     <span className="label-text text-xl font-semibold ">Genre</span>
                                 </label>
                                 <select name="genre" className="input w-full" id="genre" value={genre} onChange={handleGenreChange}>
-                                    <option value="">Select Genre</option>
+                                    <option disabled value="">Select Genre</option>
                                     <option value="Adventure">Adventure</option>
                                     <option value="Action">Action</option>
                                     <option value="RPG">RPG</option>
@@ -105,7 +125,7 @@ const AddReview = () => {
                                     <span className="label-text text-xl font-semibold ">Rating</span>
                                 </label>
                                 <select name="rating" className=" input w-full" id="rating" value={rating} onChange={handleRatingChange}>
-                                    <option value="">Select a rating</option>
+                                    <option disabled value="">Select a rating</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -141,7 +161,7 @@ const AddReview = () => {
 
                         {/* row 6 */}
                         <div>
-                            <button type='submit' className={`btn bg-primary text-xl w-full ${theme === 'light' ? 'text-white' : 'text-black'}`}>Add Review</button>
+                            <button type='submit' className={`btn bg-primary text-xl w-full ${theme === 'light' ? 'text-white' : 'text-black hover:bg-white'}`}>Add Review</button>
                         </div>
                     </form>
                 </div>

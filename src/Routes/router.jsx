@@ -32,7 +32,6 @@ const router = createBrowserRouter([
             {
                 path: '/allReviews',
                 element: <AllReviews></AllReviews>,
-                loader: () => fetch('https://assignment-ten-server-iota-five.vercel.app/gameReviews'),
 
             },
             {
