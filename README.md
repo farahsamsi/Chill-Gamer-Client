@@ -40,6 +40,51 @@ Chill Gamer is a user-friendly platform for gamers to explore and share reviews 
 
 ---
 
+## Installation and Setup
+
+1.  **Clone the Repository:**
+
+    ```bash
+    git clone https://github.com/farahsamsi/Chill-Gamer-Client.git
+    ```
+
+2.  **Navigate to the Project Directory:**
+
+    ```bash
+    cd Chill-Gamer-Client
+    ```
+
+3.  **Install Dependencies:**
+
+    - Client:
+      ```bash
+      npm install
+      ```
+
+4.  **Set Environment Variables:**
+
+    - Create a `.env` file in `client` directories.
+    - Add the following variables: - For the client:
+
+      ```env
+      VITE_API_URL=your_backend_api_url
+      VITE_FIREBASE_API_KEY=your_firebase_api_key
+      VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+      VITE_FIREBASE_PROJECT_ID=your_project_id
+      VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+      VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+      VITE_FIREBASE_APP_ID=your_app_id
+      ```
+
+5.  **Run the Application:**
+
+    - Start the client:
+      ```bash
+      npm run dev
+      ```
+
+---
+
 ## **Technologies Used**
 
 ### **Frontend**
